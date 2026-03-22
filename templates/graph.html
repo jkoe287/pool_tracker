@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graphs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+</head>
+<body>
+
+<h2>Water Quality Chart</h2>
+
+<button onclick="window.location.href='/'">Back to Entry</button>
+
+<br><br>
+
+<canvas id="phChart"></canvas>
+<br><br>
+<canvas id="facChart"></canvas>
+
+<script>
+fetch('/data')
+.then(res => res.json())
+.then(data => {
+    const timestamps = data.map(row => row[0]);
+    const ph = data.map(row => row[1]);
+    const fac = data.map(row => row[2]);
+
+    new Chart(document.getElementById("phChart"), {
+    type: 'line',
+    data: {
+        labels: timestamps,
+        datasets: [{ label: "pH", data: ph }]
+    },
+    options: {
+        scales: {
+            x: {
+                type: 'time',
+                time: {
+                    unit: 'minute'
+                }
+            }
+        }
+    }
+
+
+    });
+
+    new Chart(document.getElementById("facChart"), {
+    type: 'line',
+    data: {
+        labels: timestamps,
+        datasets: [{ label: "FAC", data: fac }]
+    },
+    options: {
+        scales: {
+            x: {
+                type: 'time',
+                time: {
+                    unit: 'minute'
+                }
+            }
+        }
+    }
+
+    });
+
+});
+</script>
+
+<style>
+button {
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+</style>
+
+</body>
+</html>
