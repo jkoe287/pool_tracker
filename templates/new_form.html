@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pool Logger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>
+    Water Test Form  for {{weekday}}
+    </h1>   
+
+    <table border="1" cellpadding="5">
+    <tr>
+        <th>Time</th>
+        <th>Temp</th>
+        <th>Bath</th>
+        <th>pH</th>
+        <th>FAC</th>
+        <th>TAC</th>
+        <th>TDS</th>
+        <th>Analyser pH</th>
+        <th>Analyser FAC</th>
+        <th>Person</th>
+    </tr>
+
+    {% for row in rows %}
+    <tr>
+        <td>{{ row.time }}</td>
+        <td>{{ row.temp }}</td>
+        <td>{{ row.bath_l }}</td>
+        <td>{{ row.ph }}</td>
+        <td>{{ row.fac }}</td>
+        <td>{{ row.tac }}</td>
+        <td>{{ row.tds }}</td>
+        <td>{{ row['an. ph'] }}</td>
+        <td>{{ row['an. fac'] }}</td>
+        <td>{{ row.person }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+
+<script>
+
+    
+</script>

@@ -1,6 +1,8 @@
 from flask import Flask, request, render_template, redirect, jsonify
 import sqlite3
-from datetime import datetime
+import datetime
+import json
+from scripts import helpers
 
 app = Flask(__name__)
 
@@ -8,15 +10,22 @@ app = Flask(__name__)
 # DATABASE SETUP
 # -------------------------
 def init_db():
-    conn = sqlite3.connect("data.db")
+    conn = sqlite3.connect("full_data.db")
     c = conn.cursor()
     c.execute("""
         CREATE TABLE IF NOT EXISTS logs (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             timestamp TEXT,
+            time_slot INTEGER
+            temp REAL,
+            bath_l INTEGER,
             ph REAL,
             fac REAL,
-            bather_load INTEGER
+            tac REAL,
+            tds REAL,
+            an_ph REAL,
+            an_fac REAL,
+            tester TEXT
         )
     """)
     conn.commit()
@@ -32,6 +41,14 @@ init_db()
 @app.route("/")
 def form():
     return render_template("form.html")
+
+@app.route("/test")
+def new_form():
+
+    day_number = datetime.date.today().weekday()
+    water_tests = helpers.open_json('schedule.json')['main_pool_tests'][day_number]
+    
+    return render_template("new_form.html", rows = water_tests, weekday = day_number)
 
 # Handle form submission
 @app.route("/submit", methods=["POST"])
@@ -50,6 +67,12 @@ def submit():
     conn.close()
 
     return redirect("/")
+
+# Return pool testing schedule as JSON
+@app.route("/schedule")
+def schedule():
+    return helpers.open_json('schedule.json')
+    
 
 # Return data as JSON (for graphs)
 @app.route("/data")
@@ -72,3 +95,5 @@ def graph():
 # -------------------------
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
+
+
