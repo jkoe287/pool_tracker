@@ -8,39 +8,111 @@
     <h1>
     Water Test Form  for {{weekday}}
     </h1>   
-
+    <p>Main Pool Tests:</p>
     <table border="1" cellpadding="5">
-    <tr>
-        <th>Time</th>
-        <th>Temp</th>
-        <th>Bath</th>
-        <th>pH</th>
-        <th>FAC</th>
-        <th>TAC</th>
-        <th>TDS</th>
-        <th>Analyser pH</th>
-        <th>Analyser FAC</th>
-        <th>Person</th>
-    </tr>
+        <tr>
+            <th>Time</th>
+            <th>Temp</th>
+            <th>Bather Load</th>
+            <th>pH</th>
+            <th>FAC</th>
+            <th>TAC</th>
+            <th>TDS</th>
+            <th>Analyser pH</th>
+            <th>Analyser FAC</th>
+            <th>Tester Name</th>
+        </tr>
 
-    {% for row in rows %}
-    <tr>
-        <td>{{ row.time }}</td>
-        <td>{{ row.temp }}</td>
-        <td>{{ row.bath_l }}</td>
-        <td>{{ row.ph }}</td>
-        <td>{{ row.fac }}</td>
-        <td>{{ row.tac }}</td>
-        <td>{{ row.tds }}</td>
-        <td>{{ row['an. ph'] }}</td>
-        <td>{{ row['an. fac'] }}</td>
-        <td>{{ row.person }}</td>
-    </tr>
-    {% endfor %}
-</table>
+        {% for row in water_tests[0] %}
+            <tr>
+                <td>{{ row.time }}</td>
+                <td>
+                    <input type="number"></input>
+                </td>
+                <td>
+                    <input type="number"></input>
+                </td>
+                <td>
+                    <input type="number"></input>
+                </td>
+                <td>
+                    <input type="number"></input>
+                </td>
+                <td>
+                    <input type="number"></input>
+                </td>
+                <td>
+                    <input type="number"></input>
+                </td>
+                <td>
+                    <input type="number"></input>
+                </td>
+                <td>
+                    <input type="number"></input>
+                </td>
+                <td>
+                    <input type="text"></input>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p>Spa Pool Tests:</p>
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>Time</th>
+                <th>Temp</th>
+                <th>Bath</th>
+                <th>pH</th>
+                <th>FAC</th>
+                <th>TAC</th>
+                <th>TDS</th>
+                <th>Analyser pH</th>
+                <th>Analyser FAC</th>
+                <th>Tester Name</th>
+            </tr>
+
+        {% for row in water_tests[1] %}
+            <tr>
+                <td>{{ row.time }}</td>
+                <td>
+                    <input type="number"></input>
+                </td>
+                <td>
+                    <input type="number"></input>
+                </td>
+                <td>
+                    <input type="number"></input>
+                </td>
+                <td>
+                    <input type="number"></input>
+                </td>
+                <td>
+                    <input type="number"></input>
+                </td>
+                <td>
+                    <input type="number"></input>
+                </td>
+                <td>
+                    <input type="number"></input>
+                </td>
+                <td>
+                    <input type="number"></input>
+                </td>
+                <td>
+                    <input type="text"></input>
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
 </body>
 
 <script>
 
-    
 </script>
+
+<style>
+input {
+    width: 100px
+}
+    
+</style>

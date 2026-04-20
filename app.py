@@ -25,7 +25,8 @@ def init_db():
             tds REAL,
             an_ph REAL,
             an_fac REAL,
-            tester TEXT
+            tester TEXT,
+            ID TEXT
         )
     """)
     conn.commit()
@@ -45,10 +46,16 @@ def form():
 @app.route("/test")
 def new_form():
 
-    day_number = datetime.date.today().weekday()
-    water_tests = helpers.open_json('schedule.json')['main_pool_tests'][day_number]
     
-    return render_template("new_form.html", rows = water_tests, weekday = day_number)
+
+    day_number = datetime.date.today().weekday()
+
+    mp_water_tests = helpers.open_json('schedule.json')['main_pool_tests'][day_number]
+    sp_water_tests = helpers.open_json('schedule.json')['spa_tests'][day_number]
+
+    water_tests = [mp_water_tests, sp_water_tests]
+
+    return render_template("new_form.html", water_tests = water_tests, weekday = day_number)
 
 # Handle form submission
 @app.route("/submit", methods=["POST"])
