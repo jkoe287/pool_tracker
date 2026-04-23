@@ -9,7 +9,7 @@
     Water Test Form  for {{weekday}}
     </h1>   
     <p>Main Pool Tests:</p>
-    <table border="1" cellpadding="5">
+    <table data-pool="main" border="1" cellpadding="5">
         <tr>
             <th>Time</th>
             <th>Temp</th>
@@ -25,43 +25,46 @@
 
         {% for row in water_tests[0] %}
             <tr>
-                <td>{{ row.time }}</td>
+                <td class="time" >{{ row.time }}</td>
                 <td>
-                    <input type="number"></input>
+                    <input name="temp" type="number"></input>
                 </td>
                 <td>
-                    <input type="number"></input>
+                    <input name="bather_load" type="number"></input>
                 </td>
                 <td>
-                    <input type="number"></input>
+                    <input name="ph" type="number"></input>
                 </td>
                 <td>
-                    <input type="number"></input>
+                    <input name="fac" type="number"></input>
                 </td>
                 <td>
-                    <input type="number"></input>
+                    <input name="tac" type="number"></input>
                 </td>
                 <td>
-                    <input type="number"></input>
+                    <input name="tds" type="number"></input>
                 </td>
                 <td>
-                    <input type="number"></input>
+                    <input name="an_ph" type="number"></input>
                 </td>
                 <td>
-                    <input type="number"></input>
+                    <input name="an_fac" type="number"></input>
                 </td>
                 <td>
-                    <input type="text"></input>
+                    <input name="tester" type="text"></input>
+                </td>
+                <td>
+                    <button onclick="SubmitButtonClick(this)">Submit</button>
                 </td>
             </tr>
         {% endfor %}
     </table>
     <p>Spa Pool Tests:</p>
-        <table border="1" cellpadding="5">
+        <table data-pool="spa" border="1" cellpadding="5">
             <tr>
                 <th>Time</th>
                 <th>Temp</th>
-                <th>Bath</th>
+                <th>Bather Load</th>
                 <th>pH</th>
                 <th>FAC</th>
                 <th>TAC</th>
@@ -73,7 +76,7 @@
 
         {% for row in water_tests[1] %}
             <tr>
-                <td>{{ row.time }}</td>
+                <td class="time" >{{ row.time }}</td>
                 <td>
                     <input type="number"></input>
                 </td>
@@ -101,13 +104,37 @@
                 <td>
                     <input type="text"></input>
                 </td>
+                <td>
+                    <button onclick="SubmitButtonClick(this)">Submit</button>
+                </td>
             </tr>
         {% endfor %}
         </table>
+
 </body>
 
 <script>
+function SubmitButtonClick(button) {
 
+    const row = button.closest("tr");
+    const table = button.closest("table")
+    const poolType = table.dataset.pool;
+    
+    const data = {
+        pool: poolType,
+        time: row.querySelector(".time").textContent
+    };
+
+    const inputs = row.querySelectorAll("input");
+    console.log(inputs[0])
+    inputs.forEach(input => {
+        data[input.name] = input.value;
+    });
+
+    console.log(data);
+
+
+}
 </script>
 
 <style>
