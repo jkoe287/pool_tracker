@@ -78,31 +78,31 @@
             <tr>
                 <td class="time" >{{ row.time }}</td>
                 <td>
-                    <input type="number"></input>
+                    <input name="temp" type="number"></input>
                 </td>
                 <td>
-                    <input type="number"></input>
+                    <input name="bather_load" type="number"></input>
                 </td>
                 <td>
-                    <input type="number"></input>
+                    <input name="ph" type="number"></input>
                 </td>
                 <td>
-                    <input type="number"></input>
+                    <input name="fac" type="number"></input>
                 </td>
                 <td>
-                    <input type="number"></input>
+                    <input name="tac" type="number"></input>
                 </td>
                 <td>
-                    <input type="number"></input>
+                    <input name="tds" type="number"></input>
                 </td>
                 <td>
-                    <input type="number"></input>
+                    <input name="an_ph" type="number"></input>
                 </td>
                 <td>
-                    <input type="number"></input>
+                    <input name="an_fac" type="number"></input>
                 </td>
                 <td>
-                    <input type="text"></input>
+                    <input name="tester" type="text"></input>
                 </td>
                 <td>
                     <button onclick="SubmitButtonClick(this)">Submit</button>
@@ -126,12 +126,30 @@ function SubmitButtonClick(button) {
     };
 
     const inputs = row.querySelectorAll("input");
-    console.log(inputs[0])
+    console.log(inputs)
     inputs.forEach(input => {
         data[input.name] = input.value;
     });
 
+    data['slot'] = row.sectionRowIndex - 1
+
     console.log(data);
+
+    
+    fetch("/api/water-test", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(response => {
+            alert("Saved");
+        })
+        .catch(err => {
+            alert("Error saving data");
+        });
 
 
 }
