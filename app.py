@@ -35,9 +35,15 @@ def init_db():
             test_time TIME NOT NULL,
             test_slot INTEGER NOT NULL,
 
-            temp REAL,
             bather_load INTEGER,
-
+              
+            temp REAL,
+            tds REAL, 
+              
+            ph REAL,
+            fac REAL,
+            tac REAL,
+              
             an_ph REAL,
             an_fac REAL,
 
@@ -45,9 +51,8 @@ def init_db():
 
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
-            UNIQUE (pool_id, test_date, test_slot),
-
-            FOREIGN KEY (pool_id) REFERENCES pools(id)
+            UNIQUE (pool_id, test_date, test_slot)
+              
         );
     """)
 
@@ -71,8 +76,8 @@ init_db()
 def form():
     day_number = datetime.date.today().weekday()
 
-    mp_water_tests = helpers.open_json('schedule.json')['main_pool_tests'][day_number]
-    sp_water_tests = helpers.open_json('schedule.json')['spa_tests'][day_number]
+    mp_water_tests = helpers.open_json('schedule.json')['pool_tests']['main_pool_tests'][day_number]
+    sp_water_tests = helpers.open_json('schedule.json')['pool_tests']['spa_tests'][day_number]
 
     water_tests = [mp_water_tests, sp_water_tests]
 
@@ -92,7 +97,7 @@ def save_water_test():
     cursor.execute("""
         INSERT INTO water_tests (
             pool_id, test_date, test_time, test_slot,
-            temp, bather_load, ph, fac, tac, tds,
+            bather_load, temp, tds, ph, fac, tac, 
             an_ph, an_fac, tester
         )
         VALUES (
@@ -106,12 +111,12 @@ def save_water_test():
         data["time"],
         data['slot'],
 
-        data["temp"],
         data["bather_load"],
+        data["temp"],
+        data["tds"],
         data["ph"],
         data["fac"],
         data["tac"],
-        data["tds"],
 
         data["an_ph"],
         data["an_fac"],
@@ -121,7 +126,9 @@ def save_water_test():
     db.commit()
     db.close()
 
+    return jsonify({"status": "ok"}), 200
+
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    app.run(debug=True, use_reloader=False, host="0.0.0.0", port=5000)
 
 

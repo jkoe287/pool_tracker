@@ -1,130 +1,209 @@
 {
-    "spa_tests":[
-    
-        [
-           { "time": "5:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "7:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "9:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "13:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "15:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "17:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "19:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true }
-        ],
-        [
-           { "time": "5:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "7:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "9:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "13:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "15:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "17:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "19:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true }
-        ],
-        [
-           { "time": "5:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "7:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "9:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "13:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "15:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "17:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "19:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true }
-        ],
-        [
-           { "time": "5:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "7:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "9:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "13:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "15:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "17:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "19:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true }
-        ],
-        [
-           { "time": "5:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "7:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "9:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "13:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "15:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "17:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "19:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true }
-        ],
-        [
-           { "time": "5:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "7:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "9:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "13:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "15:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "17:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "19:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true }
-        ],
-        [
-           { "time": "5:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "7:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "9:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "13:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "15:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "17:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "19:30", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true }
-        ]
-    ],
-    "main_pool_tests":[
-    
-        [
-           { "time": "6:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "8:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "10:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "12:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "14:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "16:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "18:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true }
-        ],
-        [
-           { "time": "6:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "8:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "10:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "12:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "14:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "16:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "18:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true }
-        ],
-        [
-           { "time": "6:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "8:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "10:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "12:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "14:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "16:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "18:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true }
-        ],
-        [
-           { "time": "6:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "8:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "10:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "12:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "14:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "16:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "18:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true }
-        ],
-        [
-           { "time": "6:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "8:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "10:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "12:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "14:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "16:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "18:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true }
-        ],
-        [
-           { "time": "8:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "10:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "12:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "14:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "16:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true }
-        ],
-        [
-           { "time": "8:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "10:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "12:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "14:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true },
-           { "time": "16:00", "temp":true, "bath_l":true, "ph":true, "fac": true, "tac":true, "tds":true, "an. ph":true, "an. fac": true, "person":true }
-        ]
-    ]
-}
+   "pool_tests": 
+      {
+         "spa_tests":
+            [
+               [
+                  { "time": "5:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "7:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "9:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "13:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "15:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "17:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "19:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true }
+               ],
+               [
+                  { "time": "5:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "7:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "9:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "13:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "15:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "17:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "19:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true }
+               ],
+               [
+                  { "time": "5:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "7:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "9:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "13:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "15:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "17:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "19:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true }
+               ],
+               [
+                  { "time": "5:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "7:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "9:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "13:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "15:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "17:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "19:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true }
+               ],
+               [
+                  { "time": "5:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "7:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "9:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "13:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "15:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "17:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "19:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true }
+               ],
+               [
+                  { "time": "5:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "7:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "9:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "13:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "15:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "17:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "19:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true }
+               ],
+               [
+                  { "time": "5:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "7:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "9:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "13:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "15:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "17:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "19:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true }
+               ]
+            ],
+         "main_pool_tests":
+            [
+               [
+                  { "time": "6:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "8:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "10:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "12:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "14:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "16:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "18:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true }
+               ],
+               [
+                  { "time": "6:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "8:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "10:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "12:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "14:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "16:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "18:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true }
+               ],
+               [
+                  { "time": "6:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "8:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "10:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "12:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "14:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "16:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "18:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true }
+               ],
+               [
+                  { "time": "6:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "8:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "10:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "12:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "14:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "16:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "18:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true }
+               ],
+               [
+                  { "time": "6:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "8:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "10:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "12:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "14:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "16:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "18:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true }
+               ],
+               [
+                  { "time": "8:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "10:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "12:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "14:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "16:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true }
+               ],
+               [
+                  { "time": "8:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "10:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "12:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "14:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
+                  { "time": "16:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true }
+               ]
+            ]
+      },  
+   "variable_info": 
+      {
+         "time":
+            {
+               "html_label":"TIME",
+               "html_type":"time",
+               "group_label":false,
+               "info":"Time of the pool test."
+            },
+         "temp":
+            {
+               "html_label":"Temperature",
+               "html_type":"number",
+               "group_label":false,
+               "info":"Temperature of the pool."            
+            },
+         "bath_l":
+            {
+               "html_label":"Bather Load",
+               "html_type":"number",
+               "group_label":false,
+               "info":"Number of people in the pool."
+            },
+         "ph":
+            {
+               "html_label":"PH",
+               "html_type":"number",
+               "group_label":false,
+               "info":"Ph value of the water."
+            },
+         "fac":
+            {
+               "html_label":"FAC",
+               "html_type":"number",
+               "group_label":false,
+               "info":"Free Available Chlorine in the pool."
+            },
+         "tac":
+            {
+               "html_label":"TAC",
+               "html_type":"number",
+               "group_label":false,
+               "info":"Total Available Chlorine in the pool."
+            },
+         "tds":
+            {
+               "html_label":"TDS",
+               "html_type":"number",
+               "group_label":false,
+               "info":"Total Available Solids in the pool."
+            },
+         "an_ph":
+            {
+               "html_label":"PH",
+               "html_type":"number",
+               "group_label":"Analysers",
+               "info":"Analyser PH value."
+            },
+         "an_fac":
+            {
+               "html_label":"FAC",
+               "html_type":"number",
+               "group_label":"Analysers",
+               "info":"Analyser Free Available value."
+            },
+         "tester":
+            {
+               "html_label":"Tester Name",
+               "html_type":"text",
+               "group_label":false,
+               "info":"Name of the tester."
+            }
+         
+         
+      }
+   
+}  
