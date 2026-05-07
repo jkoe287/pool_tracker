@@ -17,6 +17,7 @@ app = Flask(__name__)
 def init_db():
     conn = sqlite3.connect("data.db")
     c = conn.cursor()
+    conn.execute("PRAGMA journal_mode=WAL;")
     c.execute("""
         CREATE TABLE IF NOT EXISTS pools (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -35,15 +36,13 @@ def init_db():
             test_time TIME NOT NULL,
             test_slot INTEGER NOT NULL,
 
-            bather_load INTEGER,
-              
             temp REAL,
-            tds REAL, 
-              
+            bather_load INTEGER,
             ph REAL,
             fac REAL,
             tac REAL,
-              
+            tds REAL, 
+
             an_ph REAL,
             an_fac REAL,
 
@@ -51,8 +50,9 @@ def init_db():
 
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
-            UNIQUE (pool_id, test_date, test_slot)
-              
+            UNIQUE (pool_id, test_date, test_slot),
+
+            FOREIGN KEY (pool_id) REFERENCES pools(id)
         );
     """)
 
@@ -74,59 +74,70 @@ init_db()
 
 @app.route("/")
 def form():
-    day_number = datetime.date.today().weekday()
 
-    mp_water_tests = helpers.open_json('schedule.json')['pool_tests']['main_pool_tests'][day_number]
-    sp_water_tests = helpers.open_json('schedule.json')['pool_tests']['spa_tests'][day_number]
+    day = datetime.date.today()
+    
+    day_number = day.weekday()
 
-    water_tests = [mp_water_tests, sp_water_tests]
+    pool_info = helpers.open_json('pool_info.json')
 
-    return render_template("new_form.html", water_tests = water_tests, weekday = day_number)
+    pool_names = list(pool_info['pool_tests'].keys())
 
-@app.route("/schedule")
+    pool_tests = [pool_info['pool_tests'][name][day_number] for name in pool_names]
+
+    print(pool_names)
+    print(pool_tests)
+
+    
+
+    return render_template("new_form.html", pool_info = pool_info, day_number = day_number, day = day)
+
+@app.route("/pool_info")
 def schedule():
-    return helpers.open_json('schedule.json')
+    return helpers.open_json('pool_info.json')
 
 @app.route("/api/water-test", methods=["POST"])
 def save_water_test():
     data = request.json
+    print(data)
+    
+    with get_db() as db:
+        cursor = db.cursor()
 
-    db = get_db()
-    cursor = db.cursor()
+        cursor.execute("""
+            INSERT INTO water_tests (
+                pool_id, test_date, test_time, test_slot,
+                temp, bather_load, ph, fac, tac, tds,
+                an_ph, an_fac, tester
+            )
+            VALUES (
+                (SELECT id FROM pools WHERE name=?),
+                ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+            )
+        """, (
+            data["pool"].capitalize(),
+            datetime.date.today(),
+            data["time"],
+            data['slot'],
 
-    cursor.execute("""
-        INSERT INTO water_tests (
-            pool_id, test_date, test_time, test_slot,
-            bather_load, temp, tds, ph, fac, tac, 
-            an_ph, an_fac, tester
-        )
-        VALUES (
-            (SELECT id FROM pools WHERE name=?),
-            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
-        )
-    """
-    , (
-        data["pool"].capitalize(),
-        datetime.date.today(),
-        data["time"],
-        data['slot'],
+            data["temp"],
+            data["bather_load"],
+            data["ph"],
+            data["fac"],
+            data["tac"],
+            data["tds"],
 
-        data["bather_load"],
-        data["temp"],
-        data["tds"],
-        data["ph"],
-        data["fac"],
-        data["tac"],
+            data["an_ph"],
+            data["an_fac"],
+            data["tester"]
+        ))
 
-        data["an_ph"],
-        data["an_fac"],
-        data["tester"]
-    ))
+    
+    return jsonify({
+            "status": "ok",
+            "message": "Water test saved"
+        }), 200
 
-    db.commit()
-    db.close()
-
-    return jsonify({"status": "ok"}), 200
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=False, host="0.0.0.0", port=5000)

@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>
-    Water Test Form  for {{weekday}}
+    Water Test Form  for {{day}}
     </h1>   
     <p>Main Pool Tests:</p>
     <table data-pool="main" border="1" cellpadding="5">
@@ -23,7 +23,7 @@
             <th>Tester Name</th>
         </tr>
 
-        {% for row in water_tests[0] %}
+        {% for row in pool_info['pool_tests']['main'][day_number] %}
             <tr>
                 <td class="time" >{{ row.time }}</td>
                 <td>
@@ -74,7 +74,7 @@
                 <th>Tester Name</th>
             </tr>
 
-        {% for row in water_tests[1] %}
+        {% for row in pool_info['pool_tests']['spa'][day_number] %}
             <tr>
                 <td class="time" >{{ row.time }}</td>
                 <td>
@@ -114,6 +114,7 @@
 </body>
 
 <script>
+
 function SubmitButtonClick(button) {
 
     const row = button.closest("tr");

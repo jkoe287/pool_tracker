@@ -1,7 +1,7 @@
 {
    "pool_tests": 
       {
-         "spa_tests":
+         "spa":
             [
                [
                   { "time": "5:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
@@ -67,7 +67,7 @@
                   { "time": "19:30", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true }
                ]
             ],
-         "main_pool_tests":
+         "main":
             [
                [
                   { "time": "6:00", "bath_l":true, "temp":true, "tds":true, "ph":true, "fac": true, "tac":true, "an_ph":true, "an_fac": true, "tester":true },
@@ -144,7 +144,17 @@
                "html_label":"Temperature",
                "html_type":"number",
                "group_label":false,
-               "info":"Temperature of the pool."            
+               "info":"Temperature of the pool in C.",
+               "limiter":{
+                  "main_pool":{
+                     "upper_limit": 28,
+                     "lower_limit": 26
+                  },
+                  "spa_pool":{
+                     "upper_limit": 40,
+                     "lower_limit": 35
+                  }
+               }        
             },
          "bath_l":
             {
@@ -158,28 +168,68 @@
                "html_label":"PH",
                "html_type":"number",
                "group_label":false,
-               "info":"Ph value of the water."
+               "info":"Ph value of the water.",
+               "limiter":{
+                  "main_pool":{
+                     "upper_limit": 8,
+                     "lower_limit": 7
+                  },
+                  "spa_pool":{
+                     "upper_limit": 8,
+                     "lower_limit": 7
+                  }
+               }  
             },
          "fac":
             {
                "html_label":"FAC",
                "html_type":"number",
                "group_label":false,
-               "info":"Free Available Chlorine in the pool."
+               "info":"Free Available Chlorine in the pool in g/L.",
+               "limiter":{
+                  "main_pool":{
+                     "upper_limit": 3,
+                     "lower_limit": 0.5
+                  },
+                  "spa_pool":{
+                     "upper_limit": 6,
+                     "lower_limit": 1.5
+                  }
+               }  
             },
          "tac":
             {
                "html_label":"TAC",
                "html_type":"number",
                "group_label":false,
-               "info":"Total Available Chlorine in the pool."
+               "info":"Total Available Chlorine in the pool in g/L.",
+               "limiter":{
+                  "main_pool":{
+                     "upper_limit": 0.5,
+                     "lower_limit": 0.1
+                  },
+                  "spa_pool":{
+                     "upper_limit": 0.5,
+                     "lower_limit": 0.1
+                  }
+               }  
             },
          "tds":
             {
                "html_label":"TDS",
                "html_type":"number",
                "group_label":false,
-               "info":"Total Available Solids in the pool."
+               "info":"Total Available Solids in the pool.",
+               "limiter":{
+                  "main_pool":{
+                     "upper_limit": 5,
+                     "lower_limit": 0
+                  },
+                  "spa_pool":{
+                     "upper_limit": 5,
+                     "lower_limit": 0
+                  }
+               }  
             },
          "an_ph":
             {
@@ -203,7 +253,7 @@
                "info":"Name of the tester."
             }
          
-         
-      }
+   }
+   
    
 }  
