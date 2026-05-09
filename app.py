@@ -1,10 +1,35 @@
 from flask import Flask, request, render_template, redirect, jsonify
 import sqlite3
 import datetime
+sqlite3.register_adapter(datetime.date, lambda d: d.isoformat())
+sqlite3.register_converter("DATE", lambda s: s.decode())
 import json
 from scripts import helpers
+from collections import OrderedDict
 
 app = Flask(__name__)
+
+def get_tests_for_pool(pool_names, day):
+    db = get_db()
+    cursor = db.cursor()
+
+    pool_tests = {}
+    for pool_name in pool_names:
+        cursor.execute("""
+            SELECT wt.*, p.name AS pool_name
+            FROM water_tests wt
+            JOIN pools p ON p.id = wt.pool_id
+            WHERE p.name = ?
+            AND wt.test_date = ?
+            ORDER BY wt.test_slot
+        """, (pool_name, day))
+
+        rows = cursor.fetchall()
+        pool_tests[pool_name] = [dict(r) for r in rows]
+
+    db.close()
+    return pool_tests
+
 
 # for future, have range for values
 
@@ -59,7 +84,7 @@ def init_db():
     
     c.execute("""
         INSERT OR IGNORE INTO pools (name)
-        VALUES ('Main'), ('Spa');
+        VALUES ('main'), ('spa');
     """)
 
 
@@ -67,7 +92,9 @@ def init_db():
     conn.close()
 
 def get_db():
-    return sqlite3.connect("data.db")
+    conn = sqlite3.connect("data.db")
+    conn.row_factory = sqlite3.Row
+    return conn
 
 init_db()
 
@@ -83,14 +110,37 @@ def form():
 
     pool_names = list(pool_info['pool_tests'].keys())
 
-    pool_tests = [pool_info['pool_tests'][name][day_number] for name in pool_names]
+    pool_test_schedules = [pool_info['pool_tests'][name][day_number] for name in pool_names]
+  
+    # find pool headers
+    pool_header_labels = [
+        list(OrderedDict.fromkeys(
+            pool_info['variable_info'][k]['html_label']
+            for test in pool_test_s
+            for k, v in test.items()
+            if v is True
+        ))
+        for pool_test_s in pool_test_schedules
+    ]
+
 
     print(pool_names)
-    print(pool_tests)
+    print(pool_test_schedules)
+    print(pool_header_labels)
 
-    
+    # find completed tests for said day from sql database
+    completed_tests = get_tests_for_pool(pool_names, day)
+    print(completed_tests)
 
-    return render_template("new_form.html", pool_info = pool_info, day_number = day_number, day = day)
+    return render_template("new_form.html", 
+                           pool_info = pool_info,
+                           pool_names = pool_names,
+                           pool_test_schedules = pool_test_schedules,
+                           pool_header_labels = pool_header_labels,
+                           completed_tests = completed_tests,
+                           day_date = day.strftime("%d-%m-%Y"),
+                           day_weekday = day.strftime("%A")
+                           )
 
 @app.route("/pool_info")
 def schedule():
@@ -115,7 +165,7 @@ def save_water_test():
                 ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
             )
         """, (
-            data["pool"].capitalize(),
+            data["pool"],
             datetime.date.today(),
             data["time"],
             data['slot'],

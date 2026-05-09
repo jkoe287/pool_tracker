@@ -6,8 +6,19 @@
 </head>
 <body>
     <h1>
-    Water Test Form  for {{day}}
+    Water Tests For for {{day_weekday}} on the {{day_date}}
     </h1>   
+
+    {% for pool in pool_names %}
+    <table data-pool="main" border="1" cellpadding="5">
+    <tr>
+        {% for header in pool_header_labels[loop.index0] %}
+        <th>{{header}}</th>
+        {% endfor %}
+    </tr>
+    </table>
+    {% endfor %}
+
     <p>Main Pool Tests:</p>
     <table data-pool="main" border="1" cellpadding="5">
         <tr>
@@ -135,6 +146,8 @@ function SubmitButtonClick(button) {
     data['slot'] = row.sectionRowIndex - 1
 
     console.log(data);
+
+    // write test cases, to catch invalid data input in frontend
 
     
     fetch("/api/water-test", {
