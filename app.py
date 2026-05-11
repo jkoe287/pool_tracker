@@ -125,7 +125,7 @@ def form():
 
 
     print(pool_names)
-    print(pool_test_schedules)
+    print(pool_test_schedules[0][0])
     print(pool_header_labels)
 
     # find completed tests for said day from sql database

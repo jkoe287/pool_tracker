@@ -10,12 +10,24 @@
     </h1>   
 
     {% for pool in pool_names %}
+    <h2>Tests for {{pool}}</h2>
     <table data-pool="main" border="1" cellpadding="5">
     <tr>
+        <th>Time</th>
         {% for header in pool_header_labels[loop.index0] %}
         <th>{{header}}</th>
         {% endfor %}
     </tr>
+    {% for pool_test in pool_test_schedules[loop.index0] %}
+    
+    <tr>
+        {% for key, value in pool_test.items() %}
+            
+            <td>{{ value }}</td>
+            
+         {% endfor %}
+    </tr>
+    {% endfor %}   
     </table>
     {% endfor %}
 
