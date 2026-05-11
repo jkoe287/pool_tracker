@@ -13,8 +13,8 @@ def get_tests_for_pool(pool_names, day):
     db = get_db()
     cursor = db.cursor()
 
-    pool_tests = {}
-    for pool_name in pool_names:
+    pool_tests = []
+    for index, pool_name  in enumerate(pool_names):
         cursor.execute("""
             SELECT wt.*, p.name AS pool_name
             FROM water_tests wt
@@ -23,12 +23,41 @@ def get_tests_for_pool(pool_names, day):
             AND wt.test_date = ?
             ORDER BY wt.test_slot
         """, (pool_name, day))
-
+        
         rows = cursor.fetchall()
-        pool_tests[pool_name] = [dict(r) for r in rows]
+        pool_tests.append([dict(r) for r in rows])
 
     db.close()
     return pool_tests
+
+def merge_schedule_with_tests(full_schedule, db_tests):
+    merged = []
+
+    for pool_index, pool_schedule in enumerate(full_schedule):
+        pool_rows = []
+
+        # Build lookup for this pool: time → db_row
+        lookup = {t["test_time"]: t for t in db_tests[pool_index]}
+
+        for slot in pool_schedule:
+            time = slot["time"]
+
+            if time in lookup:
+                db_row = lookup[time]
+
+                # Keep only keys that exist in the schedule slot
+                filtered = {
+                    key: db_row.get(key, slot[key])
+                    for key in slot.keys()
+                }
+
+                pool_rows.append(filtered)
+            else:
+                pool_rows.append(slot)
+
+        merged.append(pool_rows)
+
+    return merged
 
 
 # for future, have range for values
@@ -123,21 +152,18 @@ def form():
         for pool_test_s in pool_test_schedules
     ]
 
-
-    print(pool_names)
-    print(pool_test_schedules[0][0])
-    print(pool_header_labels)
-
     # find completed tests for said day from sql database
     completed_tests = get_tests_for_pool(pool_names, day)
-    print(completed_tests)
+
+    pool_test_data = merge_schedule_with_tests(pool_test_schedules, completed_tests)
+    
+    print(pool_test_data)
 
     return render_template("new_form.html", 
                            pool_info = pool_info,
                            pool_names = pool_names,
-                           pool_test_schedules = pool_test_schedules,
+                           pool_test_data = pool_test_data,
                            pool_header_labels = pool_header_labels,
-                           completed_tests = completed_tests,
                            day_date = day.strftime("%d-%m-%Y"),
                            day_weekday = day.strftime("%A")
                            )

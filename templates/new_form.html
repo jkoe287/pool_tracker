@@ -6,133 +6,45 @@
 </head>
 <body>
     <h1>
-    Water Tests For for {{day_weekday}} on the {{day_date}}
+    Water Tests for {{day_weekday}} the {{day_date}}
     </h1>   
 
     {% for pool in pool_names %}
-    <h2>Tests for {{pool}}</h2>
-    <table data-pool="main" border="1" cellpadding="5">
+    <h2>Tests for {{pool_info['pool_info'][pool]['name']}}</h2>
+    <table data-pool="{{pool}}" border="1" cellpadding="5">
     <tr>
         <th>Time</th>
         {% for header in pool_header_labels[loop.index0] %}
         <th>{{header}}</th>
         {% endfor %}
     </tr>
-    {% for pool_test in pool_test_schedules[loop.index0] %}
+    {% for pool_test in pool_test_data[loop.index0] %}
     
     <tr>
         {% for key, value in pool_test.items() %}
             
-            <td>{{ value }}</td>
+            {% if value is sameas false %}
+            <td></td>
+            
+            {% elif key == 'time' or value is not boolean %}
+            <td class="{{key}}">{{ value }}</td>
+
+            {% else %}
+            <td>
+                <input name="{{key}}" type="{{pool_info['variable_info'][key]['html_type']}}"></input>
+            </td>
+            
+            {% endif %}
+            
             
          {% endfor %}
+        <td>
+            <button onclick="SubmitButtonClick(this)">Submit</button>
+        </td>
     </tr>
     {% endfor %}   
     </table>
     {% endfor %}
-
-    <p>Main Pool Tests:</p>
-    <table data-pool="main" border="1" cellpadding="5">
-        <tr>
-            <th>Time</th>
-            <th>Temp</th>
-            <th>Bather Load</th>
-            <th>pH</th>
-            <th>FAC</th>
-            <th>TAC</th>
-            <th>TDS</th>
-            <th>Analyser pH</th>
-            <th>Analyser FAC</th>
-            <th>Tester Name</th>
-        </tr>
-
-        {% for row in pool_info['pool_tests']['main'][day_number] %}
-            <tr>
-                <td class="time" >{{ row.time }}</td>
-                <td>
-                    <input name="temp" type="number"></input>
-                </td>
-                <td>
-                    <input name="bather_load" type="number"></input>
-                </td>
-                <td>
-                    <input name="ph" type="number"></input>
-                </td>
-                <td>
-                    <input name="fac" type="number"></input>
-                </td>
-                <td>
-                    <input name="tac" type="number"></input>
-                </td>
-                <td>
-                    <input name="tds" type="number"></input>
-                </td>
-                <td>
-                    <input name="an_ph" type="number"></input>
-                </td>
-                <td>
-                    <input name="an_fac" type="number"></input>
-                </td>
-                <td>
-                    <input name="tester" type="text"></input>
-                </td>
-                <td>
-                    <button onclick="SubmitButtonClick(this)">Submit</button>
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
-    <p>Spa Pool Tests:</p>
-        <table data-pool="spa" border="1" cellpadding="5">
-            <tr>
-                <th>Time</th>
-                <th>Temp</th>
-                <th>Bather Load</th>
-                <th>pH</th>
-                <th>FAC</th>
-                <th>TAC</th>
-                <th>TDS</th>
-                <th>Analyser pH</th>
-                <th>Analyser FAC</th>
-                <th>Tester Name</th>
-            </tr>
-
-        {% for row in pool_info['pool_tests']['spa'][day_number] %}
-            <tr>
-                <td class="time" >{{ row.time }}</td>
-                <td>
-                    <input name="temp" type="number"></input>
-                </td>
-                <td>
-                    <input name="bather_load" type="number"></input>
-                </td>
-                <td>
-                    <input name="ph" type="number"></input>
-                </td>
-                <td>
-                    <input name="fac" type="number"></input>
-                </td>
-                <td>
-                    <input name="tac" type="number"></input>
-                </td>
-                <td>
-                    <input name="tds" type="number"></input>
-                </td>
-                <td>
-                    <input name="an_ph" type="number"></input>
-                </td>
-                <td>
-                    <input name="an_fac" type="number"></input>
-                </td>
-                <td>
-                    <input name="tester" type="text"></input>
-                </td>
-                <td>
-                    <button onclick="SubmitButtonClick(this)">Submit</button>
-                </td>
-            </tr>
-        {% endfor %}
-        </table>
 
 </body>
 
