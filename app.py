@@ -40,7 +40,7 @@ def merge_schedule_with_tests(full_schedule, db_tests):
         lookup = {t["test_time"]: t for t in db_tests[pool_index]}
 
         for slot in pool_schedule:
-            time = slot["time"]
+            time = slot["test_time"]
 
             if time in lookup:
                 db_row = lookup[time]
@@ -90,15 +90,23 @@ def init_db():
             test_time TIME NOT NULL,
             test_slot INTEGER NOT NULL,
 
-            temp REAL,
-            bather_load INTEGER,
-            ph REAL,
-            fac REAL,
-            tac REAL,
-            tds REAL, 
+            temp REAL DEFAULT NULL,
+            bather_load INTEGER DEFAULT NULL,
+              
+            ph REAL DEFAULT NUL,
+            fac REAL DEFAULT NUL,
+            tac REAL DEFAULT NUL,
+            cac REAL DEFAULT NUL,
+            tds REAL DEFAULT NUL, 
+              
+            alk REAL DEFAULT NUL,
+            calc_h REAL DEFAULT NUL,
+              
+            line_ph REAL DEFAULT NUL,
+            line_fac REAL DEFAULT NUL,
 
-            an_ph REAL,
-            an_fac REAL,
+            an_ph REA DEFAULT NULL,
+            an_fac REAL DEFAULT NUL,
 
             tester TEXT NOT NULL,
 
@@ -154,10 +162,11 @@ def form():
 
     # find completed tests for said day from sql database
     completed_tests = get_tests_for_pool(pool_names, day)
+    #print(completed_tests)
 
     pool_test_data = merge_schedule_with_tests(pool_test_schedules, completed_tests)
     
-    print(pool_test_data)
+    #print(pool_test_data)
 
     return render_template("new_form.html", 
                            pool_info = pool_info,
@@ -176,43 +185,41 @@ def schedule():
 def save_water_test():
     data = request.json
     print(data)
-    
+
+    columns = []
+    placeholders = []
+    values = []
+
+    for key, value in data.items():
+        if key == "pool":
+            columns.append("pool_id")
+            placeholders.append("(SELECT id FROM pools WHERE name=?)")
+            values.append(value)
+        else:
+            columns.append(key)
+            placeholders.append("?")
+            values.append(value)
+
+    # Always add test_date if not supplied
+    if "test_date" not in data:
+        columns.append("test_date")
+        placeholders.append("?")
+        values.append(datetime.date.today())
+
+    sql = f"""
+        INSERT INTO water_tests ({", ".join(columns)})
+        VALUES ({", ".join(placeholders)})
+    """
+
     with get_db() as db:
         cursor = db.cursor()
+        cursor.execute(sql, values)
 
-        cursor.execute("""
-            INSERT INTO water_tests (
-                pool_id, test_date, test_time, test_slot,
-                temp, bather_load, ph, fac, tac, tds,
-                an_ph, an_fac, tester
-            )
-            VALUES (
-                (SELECT id FROM pools WHERE name=?),
-                ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
-            )
-        """, (
-            data["pool"],
-            datetime.date.today(),
-            data["time"],
-            data['slot'],
-
-            data["temp"],
-            data["bather_load"],
-            data["ph"],
-            data["fac"],
-            data["tac"],
-            data["tds"],
-
-            data["an_ph"],
-            data["an_fac"],
-            data["tester"]
-        ))
-
-    
     return jsonify({
-            "status": "ok",
-            "message": "Water test saved"
-        }), 200
+        "status": "ok",
+        "message": "Water test saved"
+    }), 200
+
 
 
 if __name__ == "__main__":

@@ -58,7 +58,7 @@ function SubmitButtonClick(button) {
     
     const data = {
         pool: poolType,
-        time: row.querySelector(".time").textContent
+        test_time: row.querySelector(".test_time").textContent
     };
 
     const inputs = row.querySelectorAll("input");
@@ -67,7 +67,7 @@ function SubmitButtonClick(button) {
         data[input.name] = input.value;
     });
 
-    data['slot'] = row.sectionRowIndex - 1
+    data['test_slot'] = row.sectionRowIndex - 1
 
     console.log(data);
 
